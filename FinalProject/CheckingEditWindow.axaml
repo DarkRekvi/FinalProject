@@ -13,6 +13,7 @@
             </StackPanel>
             
             <StackPanel Orientation="Vertical">
+                <TextBox Name="idTextBox"></TextBox>
                 <ComboBox Name="EmployeeComboBox"></ComboBox>
                 <ComboBox Name="DepartmentComboBox"></ComboBox>
                 <ComboBox Name="AreaComboBox"></ComboBox>

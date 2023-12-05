@@ -13,9 +13,13 @@
                 <TextBlock Foreground="White" FontSize="40"> Проверки </TextBlock>
             </StackPanel>
             
+            <StackPanel Orientation="Horizontal" Margin="0 30 0 30" HorizontalAlignment="Center"> 
+                <TextBlock VerticalAlignment="Center">Введите фамилию студента для поиска</TextBlock>
+                <TextBox Name="txtSearch" Width="200" Margin="5 0 5 0" TextChanged="TxtSearch_OnTextChanged"></TextBox>
+            </StackPanel>
+            
             <StackPanel Margin="0 20 0 20" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button HorizontalContentAlignment="Center" Width="150" FontSize="15" HorizontalAlignment="Center" Foreground="white" Background="DimGray">Сортировать</Button>
-                <Button Margin="10 0 0 0" HorizontalContentAlignment="Center" Width="150" FontSize="15" HorizontalAlignment="Center" Foreground="white" Background="DimGray">Фильтрация</Button>
+                <Button Click="Sorting" HorizontalContentAlignment="Center" Width="150" FontSize="15" HorizontalAlignment="Center" Foreground="white" Background="DimGray">Сортировать</Button>
             </StackPanel>
             
             <StackPanel>
@@ -36,7 +40,7 @@
                 <StackPanel Margin="0 10 0 10" Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button Click="AddChecking" HorizontalContentAlignment="Center" Width="150" FontSize="15" HorizontalAlignment="Center" Foreground="white" Background="ForestGreen">Добавить</Button>
                     <StackPanel Margin="10 0 10 0" Orientation="Vertical" HorizontalAlignment="Center">
-                        <TextBox Width="150" Watermark="ID" HorizontalAlignment="Center"></TextBox>
+                        <TextBox Name="idTextBox" Width="150" Watermark="ID" HorizontalAlignment="Center"></TextBox>
                         <Button Click="Delete" Margin="10 10 0 0" HorizontalContentAlignment="Center" Width="150" FontSize="15" HorizontalAlignment="Center" Foreground="white" Background="DarkRed">Удалить</Button>
                     </StackPanel>
                     <Button Click="Editing" Margin="10 0 0 0" HorizontalContentAlignment="Center" Width="150" FontSize="15" HorizontalAlignment="Center" Foreground="white" Background="Brown">Редактировать</Button>

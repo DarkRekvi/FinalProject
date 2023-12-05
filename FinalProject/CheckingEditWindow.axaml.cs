@@ -101,13 +101,14 @@ public partial class CheckingEditWindow : Window
 
         string _sql = "SELECT * FROM Checkings";
         
-        MySqlCommand command = new MySqlCommand("UPDATE Checkings SET employee = @employee, department = @department, area = @area, check_date = @check_date, result = @result," +
-                                                "VALUES (@employee, @department, @area, @check_date, @result)",db.GetConnection());
-        command.Parameters.Add("@employee", MySqlDbType.VarChar).Value = EmployeeComboBox.SelectedIndex+1;
-        command.Parameters.Add("@department", MySqlDbType.VarChar).Value = DepartmentComboBox.SelectedIndex+1;
-        command.Parameters.Add("@area", MySqlDbType.VarChar).Value = AreaComboBox.SelectedIndex+1;
+        MySqlCommand command = new MySqlCommand("UPDATE Checkings SET employee = @employee, department = @department, area = @area, check_date = @check_date, result = @result " +
+                                                "WHERE check_id = @id",db.GetConnection());
+        command.Parameters.Add("@id", MySqlDbType.Int32).Value = Convert.ToInt32(idTextBox.Text);
+        command.Parameters.Add("@employee", MySqlDbType.Int32).Value = EmployeeComboBox.SelectedIndex+1;
+        command.Parameters.Add("@department", MySqlDbType.Int32).Value = DepartmentComboBox.SelectedIndex+1;
+        command.Parameters.Add("@area", MySqlDbType.Int32).Value = AreaComboBox.SelectedIndex+1;
         command.Parameters.Add("@check_date", MySqlDbType.DateTime).Value = DateTextBox.SelectedDate;
-        command.Parameters.Add("@result", MySqlDbType.VarChar).Value = ResultComboBox.SelectedIndex+1;
+        command.Parameters.Add("@result", MySqlDbType.Int32).Value = ResultComboBox.SelectedIndex+1;
         
         db.OpenConnection();
         command.ExecuteNonQuery();
